@@ -1,0 +1,35 @@
+server:
+  port: 9003
+#  port: 9004
+  servlet:
+    context-path: /mark
+
+
+spring:
+  application:
+      name: mark
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/demo
+      database: demo
+  profiles:
+    active: dev
+  cloud:
+    uri: localhost:8888
+
+#  devtools:
+#    reload:
+#      trigger-file: .reloadtrigger
+logging:
+#  file: application.log
+  level:
+    com.yong: DEBUG
+    org.springframework.cloud.config.client: DEBUG
+
+management:
+  security:
+    enabled: false
+
+yong:
+  string: "from bootstrap.yml"
+
