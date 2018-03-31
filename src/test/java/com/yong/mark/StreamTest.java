@@ -104,22 +104,6 @@ public class StreamTest {
     }
 
 
-    @Test
-    public void test5(){
-        for (int i=3;i>=0;i--){
-            System.out.println("请输入账号");
-            String account = "account";
-            String pwd = "1232456";
-            if(account.equals("account") && pwd.equals("123456")){
-                System.out.println("成功输入密码");
-                break;
-            }
-            else{
-                System.out.println("密码输入错误还有"+(i-1)+"次机会");
-            }
-
-        }
-    }
 }
 
 
