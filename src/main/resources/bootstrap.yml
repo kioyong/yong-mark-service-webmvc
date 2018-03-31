@@ -10,12 +10,12 @@ spring:
       name: mark
   data:
     mongodb:
-      uri: mongodb://localhost:27017/demo
-      database: demo
+      uri: mongodb://139.199.189.64:32769/mark
+      database: mark
   profiles:
     active: dev
   cloud:
-    uri: localhost:8888
+    uri: 139.199.189.64:8888
 
 #  devtools:
 #    reload:
