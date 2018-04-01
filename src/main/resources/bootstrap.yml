@@ -12,10 +12,6 @@ spring:
     mongodb:
       uri: mongodb://139.199.189.64:32770/mark
       database: mark
-  profiles:
-    active: dev
-  cloud:
-    uri: 139.199.189.64:8888
 
 #  devtools:
 #    reload:
