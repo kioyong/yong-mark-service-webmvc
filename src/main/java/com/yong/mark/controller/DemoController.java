@@ -8,7 +8,6 @@ import com.yong.mark.vo.PatronValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,23 +22,8 @@ import java.util.List;
 @Slf4j
 public class DemoController {
 
-
-    //    @Autowired
-//    private RestTemplate restTemplate;
-//
-//    @Bean
-//    public RestTemplate getRestTemplate(@Autowired RestTemplateBuilder restTemplateBuilder){
-//        return restTemplateBuilder.build();
-//    }
     @Autowired
     private DemoService demoService;
-
-//    @Bean
-//    public DemoService demoServiceCreater(){
-//        return (a)-> a.concat("123");
-//    }
-
-
     @Autowired
     private MarkRepository markRepository;
 
@@ -48,8 +32,6 @@ public class DemoController {
 
     @GetMapping("/hello/{name}")
     public String hello(@PathVariable("name") String name) {
-//        restTemplate.postForEntity("http://localhost:8080/hello",name,null );
-//        return forObject;
         return "hello from mark service webmvc!5222 552!" + name;
     }
 

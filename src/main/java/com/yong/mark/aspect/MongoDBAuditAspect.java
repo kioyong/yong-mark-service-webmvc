@@ -21,12 +21,6 @@ public class MongoDBAuditAspect<T extends BaseEntity> {
 
     private final SequenceServiceImpl sequenceService;
 
-    //testdemo
-//    @Before("execution(* com.yong.mark.repository.*.findById(..))")
-//    public void test() {
-//        log.debug("start findById~~~~");
-//    }
-
     @Before("execution(* com.yong.mark.repository.*.insert(..)) && args(t)")
     public void insertAudit(T t) {
         t.setCreatedDate(new Date());
@@ -51,26 +45,5 @@ public class MongoDBAuditAspect<T extends BaseEntity> {
             t.setId(sequenceService.getNextSequence(t.getClass().getName()));
         }
     }
-
-
-//    @Pointcut("execution(* org.springframework.data.mongodb.repository.MongoRepository.insert(..)) && args(object)")
-//    public void testSendKafkaMesage(T object) {
-//    }
-//
-//    @AfterReturning("testSendKafkaMesage(t)")
-//    public void selectEventSource(T t) {
-//        log.info("this is AfterReturning method! T = {}", t);
-//    }
-
-//    @Before("execution(* com.yong.mark.repository.*.insert(..)) && args(t)")
-//    public void before(T t){
-//        log.info("this is before method! T = {}",t);
-//    }
-//
-//    @After("execution(* com.yong.mark.repository.*.insert(..)) && args(t)")
-//    public void afterTest(T t){
-//        log.info("this is After method! T = {}",t);
-//    }
-
 }
 

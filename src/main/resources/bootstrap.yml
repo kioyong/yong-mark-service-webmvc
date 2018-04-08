@@ -1,6 +1,5 @@
 server:
   port: 9003
-#  port: 9004
   servlet:
     context-path: /mark
 
@@ -10,14 +9,10 @@ spring:
       name: mark
   data:
     mongodb:
-      uri: mongodb://139.199.189.64:32770/mark
+      uri: mongodb://127.0.0.1:27010/mark
       database: mark
 
-#  devtools:
-#    reload:
-#      trigger-file: .reloadtrigger
 logging:
-#  file: application.log
   level:
     com.yong: DEBUG
     org.springframework.cloud.config.client: DEBUG
