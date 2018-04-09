@@ -42,7 +42,7 @@ public class DemoController {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "return hello from mark";
+        return " return hello from mark";
     }
 
     @GetMapping("/error1")

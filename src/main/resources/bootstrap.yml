@@ -1,15 +1,13 @@
 server:
   port: 9003
-  servlet:
-    context-path: /mark
-
 
 spring:
   application:
       name: mark
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27010/mark
+#      uri: mongodb://127.0.0.1:27017/mark
+      uri: mongodb://139.189.199.64:32770/mark
       database: mark
 
 logging:
