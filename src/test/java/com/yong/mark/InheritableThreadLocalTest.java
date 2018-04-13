@@ -113,4 +113,15 @@ public class InheritableThreadLocalTest {
     }
 
 
+    @Test
+    public void test6(){
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        timeFormat.setTimeZone(TimeZone.getTimeZone("Asia/Macau"));
+        format.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+        Date date = new Date();
+        log.debug("date = {}",timeFormat.format(date));
+        log.debug("date = {}",format.format(date));
+    }
+
 }

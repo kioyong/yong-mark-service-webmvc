@@ -38,6 +38,7 @@ public class ActivityRepositoryImpl implements ActivityRepositoryCustom {
             project()
                 .and("_id").as("id")
                 .andExpression("reduce(activitySessions,new Object[]{},concatArrays('$$value',filter('$$this.fills','fills',$$fills.status=='OPEN' || $$fills.status=='CLOSED')))").as("fills"),
+
             project()
                 .and("id").as("id")
 //                .and("activitySessions").as("activitySessions")

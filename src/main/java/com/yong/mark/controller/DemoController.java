@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -31,17 +32,18 @@ public class DemoController {
     public String testString;
 
     @GetMapping("/hello/{name}")
-    public String hello(@PathVariable("name") String name) {
-        return "hello from mark service webmvc!5222 552!" + name;
+    public String hello(@PathVariable("name") String name, HttpServletRequest request) {
+        String authorization = request.getHeader("Authorization");
+        return "hello from mark service webmvc!5222 552!" + name + authorization;
     }
 
     @GetMapping("/hello")
     public String hello() {
-        try {
-            Thread.sleep(1000l);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(100l);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return " return hello from mark";
     }
 
