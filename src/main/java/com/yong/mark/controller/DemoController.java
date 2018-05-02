@@ -37,6 +37,15 @@ public class DemoController {
         return "hello from mark service webmvc!5222 552!" + name + authorization;
     }
 
+
+    @GetMapping("/demo/test")
+    public String test(HttpServletRequest request) {
+        String authorization = request.getHeader("Authorization");
+        log.debug("Authorization = {}", authorization);
+        return " return hello from mark service";
+    }
+
+
     @GetMapping("/hello")
     public String hello() {
 //        try {

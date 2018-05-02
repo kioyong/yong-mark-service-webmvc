@@ -4,6 +4,7 @@ import com.yong.mark.model.Mark;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
+import java.io.Console;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -123,5 +124,14 @@ public class InheritableThreadLocalTest {
         log.debug("date = {}",timeFormat.format(date));
         log.debug("date = {}",format.format(date));
     }
+
+    @Test
+    public void test7(){
+        String minBet = "10000.0";
+        long value = Double.valueOf(minBet).longValue();
+        log.debug("value = {}",value);
+    }
+
+
 
 }
