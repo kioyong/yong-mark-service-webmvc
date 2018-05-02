@@ -30,13 +30,13 @@ public class MarkServiceImpl implements MarkService {
     @Cacheable("testsdsd")
     public Mark findOneMark(String id) {
         log.debug("before findOneMark");
-//        Optional<Mark> opt = markRepository.findById(id);
-        Mark mark = new Mark();
-        mark.setId("1");
+        Optional<Mark> opt = markRepository.findById(id);
+//        Mark mark = new Mark();
+//        mark.setId("1");
         log.debug("after findOneMark");
-//        checkArgument(opt.isPresent(), "mark not found!");
-//        return opt.get();
-        return mark;
+        checkArgument(opt.isPresent(), "mark not found!");
+        return opt.get();
+//        return mark;
     }
 
     @CachePut("testsdsd")

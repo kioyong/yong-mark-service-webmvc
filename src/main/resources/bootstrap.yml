@@ -6,10 +6,14 @@ spring:
       name: mark
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/mark
+      host: mongodb
+      port: 27017
       database: mark
-
+      authentication-database: admin
+      username: admin
+      password: admin
 logging:
+  file: application.log
   level:
     com.yong: DEBUG
     org.springframework.cloud.config.client: DEBUG
