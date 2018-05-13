@@ -1,5 +1,5 @@
 server:
-  port: 9003
+  port: 9004
 
 spring:
   application:
@@ -9,9 +9,11 @@ spring:
       host: mongodb
       port: 27017
       database: mark
-      authentication-database: admin
-      username: admin
-      password: admin
+#      authentication-database: admin
+#      username: admin
+#      password: admin
+  profiles:
+    active: dev
 logging:
   file: application.log
   level:
@@ -21,7 +23,15 @@ logging:
 management:
   security:
     enabled: false
-
+#  endpoint:
+#    env:
+#      enabled: true
+#    beans:
+#      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 yong:
   string: "from bootstrap.yml"
 
