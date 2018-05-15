@@ -1,19 +1,24 @@
 package com.yong.mark.controller;
 
+import com.yong.mark.model.ActivityRequest;
 import com.yong.mark.repository.MarkRepository;
 import com.yong.mark.service.DemoService;
 import com.yong.mark.vo.HotPlayerPatron;
 import com.yong.mark.vo.HotPlayerSummary;
 import com.yong.mark.vo.PatronValue;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.util.io.Streams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * @author LiangYong
@@ -96,5 +101,22 @@ public class DemoController {
         return demoService.getCacheString(test);
     }
 
+    @PostMapping("/activity")
+    public List<String> getActivityId(@RequestBody ActivityRequest request) {
+        List<String> ids = request.getTableIds();
+        List<String> result = new ArrayList<>();
+        ZonedDateTime fromDate= request.getFromDate();
+        ZonedDateTime toDate = request.getToDate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+        while (fromDate.isBefore(toDate)){
+            fromDate = fromDate.plusDays(1);
+            String dateString = fromDate.format(formatter);
+            for (String id: ids) {
+                result.add(dateString.concat(id));
+            }
+
+        }
+        return result;
+    }
 
 }

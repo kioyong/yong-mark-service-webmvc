@@ -28,10 +28,14 @@ management:
 #      enabled: true
 #    beans:
 #      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
 yong:
   string: "from bootstrap.yml"
 
+hibernate:
+  transaction:
+    jta:
+      platform:
