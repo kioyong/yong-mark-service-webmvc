@@ -7,7 +7,6 @@ import com.yong.mark.vo.HotPlayerPatron;
 import com.yong.mark.vo.HotPlayerSummary;
 import com.yong.mark.vo.PatronValue;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.util.io.Streams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -16,15 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * @author LiangYong
  * @date 2017/12/24
  */
 @RestController
+@RequestMapping("/demo")
 @Slf4j
 public class DemoController {
 
@@ -119,4 +117,16 @@ public class DemoController {
         return result;
     }
 
+    @PostMapping("/group")
+    public String getGroup(){
+        log.debug("start get group");
+        try {
+            Thread.sleep(30000L);
+        } catch (InterruptedException e) {
+
+            throw new RuntimeException("get group failed");
+        }
+        log.debug("end get group");
+        return "this is group return ";
+    }
 }
