@@ -1,7 +1,5 @@
 server:
-  port: 443
-  ssl:
-    key-store: 'classpath:www.kioyong.xyz.jks'
+  port: 9003
 spring:
   application:
       name: mark
@@ -10,8 +8,6 @@ spring:
       host: mongodb
       port: 27017
       database: mark
-  profiles:
-    active: dev
 logging:
   file: application.log
   level:
