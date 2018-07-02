@@ -2,7 +2,6 @@ server:
   port: 443
   ssl:
     key-store: 'classpath:www.kioyong.xyz.jks'
-    key-store-password: klljkljli@34
 spring:
   application:
       name: mark
