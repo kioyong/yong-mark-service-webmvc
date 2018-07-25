@@ -1,7 +1,9 @@
 package com.yong.mark.controller;
 
 import com.yong.mark.model.ActivityRequest;
+import com.yong.mark.model.Table;
 import com.yong.mark.repository.MarkRepository;
+import com.yong.mark.repository.TableRepository;
 import com.yong.mark.service.DemoService;
 import com.yong.mark.vo.HotPlayerPatron;
 import com.yong.mark.vo.HotPlayerSummary;
@@ -31,6 +33,9 @@ public class DemoController {
     @Autowired
     private MarkRepository markRepository;
 
+    @Autowired
+    private TableRepository tableRepository;
+
     @Value("${yong.string}")
     public String testString;
 
@@ -49,6 +54,10 @@ public class DemoController {
     }
 
 
+    @GetMapping("/table/{tableId}")
+    public Table table(@PathVariable("tableId") String tableId) {
+        return tableRepository.findFirstByTableIdAndStatusNotNullOrderByDateDesc(tableId);
+    }
     @GetMapping("/hello")
     public String hello() {
 //        try {
