@@ -18,4 +18,7 @@ public class PatronServiceImpl {
         return patronRepository.findAll();
     }
 
+    public List<String> findWithoutScannedIdList() {
+        return patronRepository.findPatronListWithoutScannedId();
+    }
 }

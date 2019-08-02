@@ -1,18 +1,20 @@
 server:
   port: 9003
 spring:
-  application:
-      name: mark
   data:
     mongodb:
-      host: mongodb
-      port: 27017
-      database: mark
+      uri: mongodb://root:yong!23@139.199.189.64:27017/test?authSource=admin
+      database: test
+#  profiles:
+#    active: dev
+
 logging:
   file: application.log
   level:
     com.yong: DEBUG
     org.springframework.cloud.config.client: DEBUG
+
+
 
 management:
   security:
