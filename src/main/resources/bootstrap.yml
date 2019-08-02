@@ -3,7 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://root:yong!23@139.199.189.64:27017/test?authSource=admin
+      uri: mongodb://localhost:27017/test?authSource=admin
       database: test
 #  profiles:
 #    active: dev
